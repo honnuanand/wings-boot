@@ -1,0 +1,8 @@
+jobs:
+- name: package
+  plan:
+  - get: source-code
+    trigger: true
+  - task: package
+    privileged: true
+    file: source-code/ci/tasks/package.yml
