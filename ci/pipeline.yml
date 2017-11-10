@@ -43,7 +43,7 @@ jobs:
     file: source-code/ci/tasks/package.yml
   - put: jar-store
     params:
-      file: app-jar/wings-boot*.jar
+      file: app-jar/*
 
 - name: deploy-to-pcf
   plan:
@@ -52,8 +52,7 @@ jobs:
     trigger: true
   - put: deployment
     params:
-      manifest: app-jar/manifest.yml
-      path: app-jar/wings-boot*.jar
+      path: jar-store/wings-boot*.jar
 
 - name: just-list
   plan:
