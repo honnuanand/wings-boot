@@ -48,7 +48,7 @@ jobs:
 - name: deploy-to-pcf
   plan:
   - get: jar-store
-    passed: ['build']
+    passed: ['package']
     trigger: true
   - put: deployment
     params:
