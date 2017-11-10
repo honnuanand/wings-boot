@@ -35,8 +35,8 @@ jobs:
     file: source-code/ci/tasks/package.yml
   - put: deployment
     params:
-      path: source-code/target/wings-boot*.jar
-      manifest: source-code/manifest.yml
+      path: app-jar/target/wings-boot*.jar
+      manifest: app-jar/manifest.yml
 
 
 
