@@ -12,20 +12,12 @@ resources:
     uri: https://github.com/honnuanand/wings-boot.git
     branch: master
 
-- name: jar-store
-  type: artifactory
-  source:
-    endpoint: http://192.168.100.1:8081/artifactory
-    repository: "/jar-files/wings-boot"
-    regex: "wings-boot-(?<version>.*).jar"
-    username: admin
-    password: password
-    skip_ssl_verification: true
+
 
 - name: deployment
   type: cf
   source:
-    api: https://api.run.haas-149.pez.pivotal.io
+    api: https://api.sys.cf.az.clue2solve.com
     username: arao
     password: p@ssw0rd!
     organization: workshop
@@ -41,18 +33,12 @@ jobs:
   - task: package
     privileged: true
     file: source-code/ci/tasks/package.yml
-  - put: jar-store
-    params:
-      file: app-jar/*
-
-- name: deploy-to-pcf
-  plan:
-  - get: jar-store
-    passed: ['package']
-    trigger: true
   - put: deployment
     params:
-      path: jar-store/wings-boot*.jar
+      path: source-code/target/wings-boot*.jar
+      manifest: source-code/manifest.yml
+
+
 
 - name: just-list
   plan:
