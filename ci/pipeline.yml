@@ -13,3 +13,23 @@ jobs:
   - task: package
     privileged: true
     file: source-code/ci/tasks/package.yml
+
+
+- name: just-list
+  plan:
+  - get: source-code
+    trigger: true
+  - task: list-repo-content
+    config:
+      platform: linux
+      inputs:
+      - name: source-code
+      image_resource:
+        type: docker-image
+        source: { repository: ubuntu }
+      run:
+        path: sh
+        args:
+        - -exc
+        - |
+          ls -R ./source-code
