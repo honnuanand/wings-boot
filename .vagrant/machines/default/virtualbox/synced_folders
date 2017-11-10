@@ -1,1 +1,0 @@
-{"virtualbox":{"/vagrant":{"mount_options":["dmode=777","fmode=777","uid=900","gid=900"],"guestpath":"/vagrant","hostpath":"/Users/anandrao/c2s/repos/wings-boot","disabled":false,"__vagrantfile":true}}}
