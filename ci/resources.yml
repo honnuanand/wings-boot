@@ -1,6 +1,0 @@
-resources:
-- name: source-code
-  type: git
-  source:
-    uri: https://github.com/jamesjoshuahill/concourse-spring-boot-maven.git
-    branch: master
