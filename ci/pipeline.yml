@@ -10,14 +10,14 @@ resources:
   type: git
   source:
     uri: https://github.com/honnuanand/wings-boot.git
-    branch: master
+    branch: good
 
 
 
 - name: deployment
   type: cf
   source:
-    api: https://api.sys.cf.az.clue2solve.com
+    api: https://api.run.haas-149.pez.pivotal.io
     username: arao
     password: p@ssw0rd!
     organization: workshop
