@@ -19,8 +19,8 @@ resources:
   source:
     api: https://api.sys.cf.az.clue2solve.com
     username: arao
-    password: p@ssw0rd!
-    organization: workshop
+    password: arao
+    organization: c2s
     space: demo
     skip_cert_check: true
 
