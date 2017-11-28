@@ -10,7 +10,7 @@ resources:
   type: git
   source:
     uri: https://github.com/honnuanand/wings-boot.git
-    branch: master
+    branch: cfci
 
 
 
