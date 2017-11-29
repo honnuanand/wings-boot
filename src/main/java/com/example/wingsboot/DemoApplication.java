@@ -16,6 +16,6 @@ public class DemoApplication {
 
 	@RequestMapping( method = RequestMethod.GET)
 	public String hello() {
-		return "Hello World, Really ? ";
+		return "Hello World,  Starbucks ";
 	}
 }
