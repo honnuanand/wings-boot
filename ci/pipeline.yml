@@ -10,18 +10,18 @@ resources:
   type: git
   source:
     uri: https://github.com/honnuanand/wings-boot.git
-    branch: master
+    branch: alb-demo
 
 
 
 - name: deployment
   type: cf
   source:
-    api: https://api.sys.cf.az.clue2solve.com
+    api: https://api.sys.pas.pcfpoc.me
     username: arao
-    password: p@ssw0rd!
-    organization: workshop
-    space: demo
+    password: arao
+    organization: arao
+    space: dev
     skip_cert_check: true
 
 
