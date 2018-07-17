@@ -16,6 +16,8 @@ public class DemoApplication {
 
 	@RequestMapping( method = RequestMethod.GET)
 	public String hello() {
-		return "Hello World, Welcome to Pivotal ";
+		return "<html>" +
+				"Pivotal Powered Hybrid Cloud at <b>Albertsons companies</b>- Quick Demo" +
+				"</html>";
 	}
 }
