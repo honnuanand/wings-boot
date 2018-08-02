@@ -10,6 +10,7 @@ Prerequisites (and versions used):
 - [Vagrant], v1.8.1
 - [VirtualBox], v5.0.16
 
+
 ```sh
 brew cask install java
 brew cask install vagrant
