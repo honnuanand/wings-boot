@@ -1,3 +1,8 @@
+resource_types:
+- name: artifactory
+  type: docker-image
+  source:
+    repository: pivotalservices/artifactory-resource
 
 resources:
 - name: source-code
@@ -5,6 +10,16 @@ resources:
   source:
     uri: https://github.com/honnuanand/wings-boot.git
     branch: alb-demo
+
+- name: wings-boot-repo
+  type: artifactory
+  source:
+    endpoint: http://artifactory.aws.clue2solve.com/artifactory
+    repository: "/hello-artifactory/wings-boot"
+    regex: "wings-boot-(?<version>.*).jar"
+    username: ((artifactory-user))
+    password: ((artifactory-password))
+    skip_ssl_verification: true
 
 jobs:
 - name: build-binary
@@ -14,5 +29,8 @@ jobs:
   - task: package
     privileged: true
     file: source-code/ci/tasks/package.yml
+  - put: wings-boot-repo
+    params:
+      file: app-jar/wings-boot*.jar
 
 
