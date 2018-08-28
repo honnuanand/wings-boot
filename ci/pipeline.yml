@@ -11,6 +11,16 @@ resources:
     uri: https://github.com/honnuanand/wings-boot.git
     branch: alb-demo
 
+- name: Pivotal-Cloud-Foundry
+  type: cf
+  source:
+    api: ((cf-api-endpoint))
+    username: ((cf-username))
+    password: ((cf-password))
+    organization: ((cf-org))
+    space: ((cf-space))
+    skip_cert_check: ((cf-skip-cert-check))
+  
 - name: wings-boot-repo
   type: artifactory
   source:
@@ -32,3 +42,15 @@ jobs:
   - put: wings-boot-repo
     params:
       file: app-jar/wings-boot*.jar
+
+- name: deploy-to-pcf
+  plan:
+  - get: source-code
+  - get: wings-boot-repo
+    trigger: true
+    passed: ['build-binary']
+
+  - put: Pivotal-Cloud-Foundry
+    params:
+      path: ./wings-boot-repo/wings-boot*.jar
+      manifest: source-code/manifest.yml
