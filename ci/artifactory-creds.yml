@@ -1,2 +1,6 @@
 artifactory-user: CHANGEME
 artifactory-password: CHANGEME
+artifactory-uri: http://{ARTIFACTORY-URL}/artifactory
+artifactory-repository: /hello-artifactory/wings-boot
+artifactory-regex: wings-boot-(?<version>.*).jar
+artifactory-skip-cert-check: true

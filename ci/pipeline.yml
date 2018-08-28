@@ -14,12 +14,12 @@ resources:
 - name: wings-boot-repo
   type: artifactory
   source:
-    endpoint: http://artifactory.aws.clue2solve.com/artifactory
-    repository: "/hello-artifactory/wings-boot"
-    regex: "wings-boot-(?<version>.*).jar"
+    endpoint: ((artifactory-uri))
+    repository: ((artifactory-repository))
+    regex: ((artifactory-regex))
     username: ((artifactory-user))
     password: ((artifactory-password))
-    skip_ssl_verification: true
+    skip_ssl_verification: ((artifactory-skip-cert-check))
 
 jobs:
 - name: build-binary
@@ -32,5 +32,3 @@ jobs:
   - put: wings-boot-repo
     params:
       file: app-jar/wings-boot*.jar
-
-
