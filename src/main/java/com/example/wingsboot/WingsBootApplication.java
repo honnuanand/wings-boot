@@ -8,16 +8,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class DemoApplication {
+public class WingsBootApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(WingsBootApplication.class, args);
 	}
 
 	@RequestMapping( method = RequestMethod.GET)
 	public String hello() {
 		return "<html>" +
-				"Pivotal Powered Hybrid Cloud at <b>Albertsons companies</b>- Quick Demo" +
+				"Wingsboot gets reactive soon" +
 				"</html>";
 	}
 }
